@@ -11,7 +11,8 @@ export class SignalRService {
   public data: ChartModel[];
   public orderstatusdata: ChartModel[];
   public bradcastedData: ChartModel[];
- readonly baseURL = 'https://teranethackathon20211030215000.azurewebsites.net/api/Orders';
+ //readonly baseURL = 'https://teranethackathon20211030215000.azurewebsites.net/api/Orders';
+ readonly baseURL = 'https://localhost:5001/api/Orders';
 private hubConnection: signalR.HubConnection
   
   getOrderTypeList()
@@ -29,7 +30,8 @@ private hubConnection: signalR.HubConnection
   
   public startConnection = () => {
     this.hubConnection = new signalR.HubConnectionBuilder()
-                            .withUrl('https://teranethackathon20211030215000.azurewebsites.net/chart')
+                            //.withUrl('https://teranethackathon20211030215000.azurewebsites.net/chart')
+                            .withUrl('http://localhost:7071/api')
                             .build();
 
     this.hubConnection
